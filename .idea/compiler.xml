@@ -6,7 +6,9 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="dubbo-producer" />
         <module name="dubbo-api" />
+        <module name="dubbo-consumer" />
       </profile>
     </annotationProcessing>
   </component>

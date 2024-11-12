@@ -1,0 +1,13 @@
+server:
+  port: 8082
+dubbo:
+  application:
+    logger: slf4j
+    name: DubboConsumerApplication
+    qos-enable: false # 关闭 qos 服务,因为 QoS 服务是用来管理 Dubbo 服务提供者的运行状态和健康状况的，默认端口22222
+  registry:
+    address: nacos://${zookeeper.address:127.0.0.1}:8084
+    username: nacos
+    password: nacos
+  protocol:
+    name: tri

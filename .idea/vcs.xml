@@ -3,6 +3,7 @@
   <component name="VcsDirectoryMappings">
     <mapping directory="" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/dubbo-api" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/dubbo-consumer" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/dubbo-producer" vcs="Git" />
   </component>
 </project>

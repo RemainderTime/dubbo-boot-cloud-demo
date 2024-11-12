@@ -1,0 +1,13 @@
+server:
+  port: 8081
+dubbo:
+  application:
+    logger: slf4j
+    name: DubboProducerApplication
+  registry:
+    address: nacos://${zookeeper.address:127.0.0.1}:8084
+    username: nacos
+    password: nacos
+  protocol:
+    name: tri
+    port: 50051

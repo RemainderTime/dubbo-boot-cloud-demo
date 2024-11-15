@@ -1,8 +1,10 @@
 package com.xf.consumer.dubbo.consumer;
 
 import com.xf.api.DemoService;
+import com.xf.consumer.dubbo.service.OrderServiceImpl;
 import org.apache.dubbo.config.annotation.DubboReference;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 

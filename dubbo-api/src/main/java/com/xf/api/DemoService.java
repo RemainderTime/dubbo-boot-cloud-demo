@@ -11,4 +11,10 @@ public interface DemoService {
 
     String sayHello(String name);
 
+    /**
+     * 扣减库存
+     * @param num
+     */
+    void deInventory(Integer num, Integer productId);
+
 }

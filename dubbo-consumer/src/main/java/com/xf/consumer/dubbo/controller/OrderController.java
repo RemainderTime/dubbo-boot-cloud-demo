@@ -22,6 +22,9 @@ public class OrderController {
 
     @GetMapping("/placeAnOrder")
     public String placeAnOrder() {
+
+        // 模拟用户下单
+        //哈哈哈
         orderService.placeAnOrder();
         return "下单成功";
     }

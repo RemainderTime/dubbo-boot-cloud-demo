@@ -5,9 +5,9 @@ dubbo:
     logger: slf4j
     name: DubboProducerApplication
   registry:
-    address: nacos://117.72.35.70:8848
+    address: nacos://127.0.0.1:8848
     username: nacos
-    password: love..520
+    password: 
   protocol:
     name: tri
     port: 50051
@@ -33,9 +33,9 @@ spring:
         min-evictable-idle-time-millis: 60000  # 空闲连接超过60秒会被丢弃
       datasource:
         master: #${SERVER_ADDRESS}
-          url: jdbc:mysql://117.72.35.70:3307/xf-boot-base?useUnicode=true&characterEncoding=utf-8&allowPublicKeyRetrieval=true&useSSL=false&serverTimezone=Asia/Shanghai
+          url: jdbc:mysql://127.0.0.1:3307/xf-boot-base?useUnicode=true&characterEncoding=utf-8&allowPublicKeyRetrieval=true&useSSL=false&serverTimezone=Asia/Shanghai
           username: root
-          password: love..520
+          password: 
           driver-class-name: com.mysql.cj.jdbc.Driver
           hikari:
             minimum-idle: 4  # 主数据源的最小空闲连接数
@@ -43,40 +43,34 @@ spring:
 
 seata:
   server:
-    address: 117.72.35.70:8091
+    address: 127.0.0.1:8091
   tm:
     default-transaction-manager-type: AT   # 默认使用 AT 模式
     default-timeout: 30000  # 设置全局事务超时
   dubbo:
     enable: true
-  client:
-    tm:
-      default:
-        globalTransactionTimeout: 60000  # 设置事务超时时间为 60 秒，单位为毫秒
   application-id: product-service  # 这里是应用的唯一标识，可以根据你的服务名称设置
   tx-service-group: dubbo_tx_group  # 事务分组名称，确保每个 Dubbo 服务的 tx-service-group 一致
   registry:
     type: nacos  # 注册中心类型，如 nacos，若使用其他注册中心需要调整
     nacos:
-      server-addr: 117.72.35.70:8848  # Nacos 地址和端口
-      namespace: "581b3f92-be53-4537-b777-885ce60d07e9"
+      server-addr: 127.0.0.1:8848  # Nacos 地址和端口
+      namespace: 581b3f92-be53-4537-b777-885ce60d07e9
       group: SEATA_GROUP
-      username: "nacos"            # 如果 Nacos 需要认证
-      password: "love..520"
+      username: nacos            # 如果 Nacos 需要认证
+      password: 
   config:
     type: nacos
     nacos:
-      server-addr: 117.72.35.70:8848  # Nacos 地址和端口
+      server-addr: 127.0.0.1:8848  # Nacos 地址和端口
       namespace: "581b3f92-be53-4537-b777-885ce60d07e9"
       group: SEATA_GROUP
       username: "nacos"            # 如果 Nacos 需要认证
-      password: "love..520"
+      password: ""
       data-id: "seata-server.properties"
   service:
     grouplist:
-      default: ${seata.address:117.72.35.70}:8091
-    vgroup-mapping:
-      dubbo_tx_group: default  # 映射事务组 `dubbo_tx_group` 到虚拟组 `default`
+      default: ${seata.address:127.0.0.1}:8091
     enable-degrade: false
     disable-global-transaction: false
   enabled: true

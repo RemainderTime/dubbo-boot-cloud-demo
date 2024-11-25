@@ -7,7 +7,7 @@ dubbo:
   registry:
     address: nacos://127.0.0.1:8848
     username: nacos
-    password: 
+    password: love..520
   protocol:
     name: tri
     port: 50051
@@ -17,6 +17,18 @@ dubbo:
     timeout: 3000
 
 spring:
+  application:
+    name: dubbo-producer
+  main:
+    allow-bean-definition-overriding: true
+  cloud:
+    sentinel:
+      transport:
+        dashboard: localhost:8089 # sentinel-dashboard地址
+        port: 8719
+      eager: true
+      filter:
+        enabled: true
   datasource:
     dynamic:
       primary: master
@@ -35,12 +47,11 @@ spring:
         master: #${SERVER_ADDRESS}
           url: jdbc:mysql://127.0.0.1:3307/xf-boot-base?useUnicode=true&characterEncoding=utf-8&allowPublicKeyRetrieval=true&useSSL=false&serverTimezone=Asia/Shanghai
           username: root
-          password: 
+          password: love..520
           driver-class-name: com.mysql.cj.jdbc.Driver
           hikari:
             minimum-idle: 4  # 主数据源的最小空闲连接数
             maximum-pool-size: 20  # 主数据源的最大连接数
-
 seata:
   server:
     address: 127.0.0.1:8091
@@ -58,7 +69,7 @@ seata:
       namespace: 581b3f92-be53-4537-b777-885ce60d07e9
       group: SEATA_GROUP
       username: nacos            # 如果 Nacos 需要认证
-      password: 
+      password: love..520
   config:
     type: nacos
     nacos:
@@ -66,7 +77,7 @@ seata:
       namespace: "581b3f92-be53-4537-b777-885ce60d07e9"
       group: SEATA_GROUP
       username: "nacos"            # 如果 Nacos 需要认证
-      password: ""
+      password: "love..520"
       data-id: "seata-server.properties"
   service:
     grouplist:

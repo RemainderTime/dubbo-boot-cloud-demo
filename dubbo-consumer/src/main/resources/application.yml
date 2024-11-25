@@ -1,7 +1,16 @@
 server:
   port: 8082
-
 spring:
+  main:
+    allow-bean-definition-overriding: true
+  cloud:
+    sentinel:
+      transport:
+        dashboard: localhost:8089 # sentinel-dashboard地址
+        port: 8719
+      eager: true
+      filter:
+        enabled: true
   application:
     name: dubbo-consumer
   servlet:
@@ -32,7 +41,7 @@ spring:
         master: #${SERVER_ADDRESS}
           url: jdbc:mysql://127.0.0.1:3307/xf-boot-base?useUnicode=true&characterEncoding=utf-8&allowPublicKeyRetrieval=true&useSSL=false&serverTimezone=Asia/Shanghai
           username: root
-          password: 
+          password: love..520
           driver-class-name: com.mysql.cj.jdbc.Driver
           hikari:
             minimum-idle: 4  # 主数据源的最小空闲连接数
@@ -46,9 +55,14 @@ dubbo:
   registry:
     address: nacos://127.0.0.1:8848
     username: nacos
-    password: 
+    password: love..520
   protocol:
     name: tri
+
+sentinel:
+  transport:
+    dashboard: localhost:8089 # 替换为你的 Sentinel 控制台地址
+    port: 8719 # 本地心跳监听端口
 
 seata:
   server:
@@ -67,7 +81,7 @@ seata:
       namespace: "581b3f92-be53-4537-b777-885ce60d07e9"
       group: SEATA_GROUP
       username: "nacos"            # 如果 Nacos 需要认证
-      password: ""
+      password: "love..520"
   config:
     type: nacos
     nacos:
@@ -75,13 +89,14 @@ seata:
       namespace: "581b3f92-be53-4537-b777-885ce60d07e9"
       group: SEATA_GROUP
       username: "nacos"            # 如果 Nacos 需要认证
-      password: ""
+      password: "love..520"
       data-id: "seata-server.properties"
   service:
     grouplist:
       default: ${seata.address:127.0.0.1}:8091
     enable-degrade: false
     disable-global-transaction: false
+
 
 logging:
   level:
@@ -92,3 +107,8 @@ logging:
     org.mybatis: DEBUG        # MyBatis 日志输出
     jdbc.sqlonly: DEBUG       # 输出 SQL 语句
     jdbc.sqltiming: DEBUG     # 输出 SQL 执行时间
+
+# 开启feign对sentinel的支持
+feign:
+  sentinel:
+    enabled: true
